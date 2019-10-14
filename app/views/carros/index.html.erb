@@ -1,0 +1,49 @@
+<h2>Carros</h2>
+
+<p style="background-color: #ddd; font-weight: bold">
+	Carroças Disponíveis: <%= @carros.size %>
+</p>
+
+<table width="100%">
+	<tr>
+		<th>Modelo</th>
+		<th>Ano</th>
+		<th>Cor</th>
+		<th>km</th>
+	</tr>
+<% @carros.each do |c| %>
+	<tr>
+		<td>
+			<%= link_to c.modelo, action: 'edit', id: c %>
+		</td>
+		<td><%=c.ano%></td>
+		<td>
+			<div style="background-color: <%=c.cor%>; width: 20px; height: 20px "></div>
+		</td>
+		<td><%=c.km%></td>
+		<td>
+			<!--
+				https://api.rubyonrails.org/
+				link_to "Profile", controller: "profiles", action: "show", id: @profile
+				# => <a href="/profiles/show/1">Profile</a>
+
+				link_to 'Rodar', controller: "carro", action: 'vote', id: c.id, method: :post 
+			-->
+			
+		</td>
+	</tr>
+<% end %>
+</table>
+
+<!--
+	https://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-button_to
+
+	Pode-se criar o link_to de várias maneiras, por exemplo, o link para carros/new :
+	link_to 'Novo Carro', new_carro_path  		# observar o singular
+	link_to 'Novo Carro', action: 'new'		
+	link_to 'Novo Carro', {controller: 'carros', action: 'new'}	
+
+	Usando no plural, leva para o index ou root, sei lá:
+	link_to 'Lista de Carros', carros_path
+-->
+<%= link_to 'Novo Carro', new_carro_path %>

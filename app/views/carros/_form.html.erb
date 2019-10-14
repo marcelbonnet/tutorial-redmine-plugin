@@ -1,0 +1,37 @@
+<% if @carro.errors.any? %>
+<ul>
+    <% @carro.errors.full_messages.each do |msg| %>
+    <li><%= msg %> </li>
+    <% end %>
+</ul>
+<% end %>
+
+<!--
+	Mapeamento HTML FORM ELEMENTS no rails:
+	https://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html
+-->
+
+<%= form_for @carro do |f| %>
+
+	<table>
+		<tr>
+			<th>Modelo</th>
+			<td><%=f.text_field :modelo%></td>
+		</tr>
+		<tr>
+			<th>Ano</th>
+			<td><%=f.number_field :ano%></td>
+		</tr>
+		<tr>
+			<th>Cor</th>
+			<td><%=f.color_field :cor %></td>
+		</tr>
+		<tr>
+			<th>km</th>
+			<td><%=f.number_field :km%></td>
+		</tr>	
+	</table>
+
+<%= f.submit %>
+
+<% end %>

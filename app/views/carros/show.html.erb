@@ -1,0 +1,26 @@
+<h2>Carro #<%=@carro.id%></h2>
+
+<table>
+	<tr>
+		<th>Modelo</th>
+		<td><%=@carro.modelo%></td>
+	</tr>
+	<tr>
+		<th>Ano</th>
+		<td><%=@carro.ano%></td>
+	</tr>
+	<tr>
+		<th>Cor</th>
+		<td>
+			<div style="background-color: <%=@carro.cor%>; width: 20px; height: 20px "></div>
+		</td>
+	</tr>
+	<tr>
+		<th>km</th>
+		<td><%=@carro.km%></td>
+	</tr>	
+</table>
+
+<%= link_to 'Lista de Carros', carros_path %> | 
+<%= link_to 'Editar', action: 'edit', id: @carro.id %>
+
