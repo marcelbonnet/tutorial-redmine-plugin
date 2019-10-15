@@ -1,8 +1,4 @@
-<h2>Carros</h2>
-
-<p style="background-color: #ddd; font-weight: bold">
-	Carroças Disponíveis: <%= @carros.size %>
-</p>
+<h2><%= @carros.size if @carros != nil %> Carros</h2>
 
 <table width="100%">
 	<tr>
@@ -14,7 +10,7 @@
 <% @carros.each do |c| %>
 	<tr>
 		<td>
-			<%= link_to c.modelo, action: 'edit', id: c %>
+			<%= link_to c.modelo, action: 'show', id: c %>
 		</td>
 		<td><%=c.ano%></td>
 		<td>
@@ -32,7 +28,7 @@
 			
 		</td>
 	</tr>
-<% end %>
+<% end if @carros != nil %>
 </table>
 
 <!--
